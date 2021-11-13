@@ -13,6 +13,8 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize( window.innerWidth, window.innerHeight );
 document.body.appendChild( renderer.domElement );
 
+renderer.setClearColor( 0xb7c3f3 , 1);
+
 
 // Light 
 const light = new THREE.AmbientLight( 0xffffff );
