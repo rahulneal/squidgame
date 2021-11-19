@@ -20,6 +20,10 @@ renderer.setClearColor( 0xb7c3f3 , 1);
 const light = new THREE.AmbientLight( 0xffffff );
 scene.add( light );
 
+// Global Variable
+const start_position = 3 
+const end_position = -start_position 
+
 
 
 
@@ -27,7 +31,19 @@ scene.add( light );
 // const geometry = new THREE.BoxGeometry();
 // const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 // const cube = new THREE.Mesh( geometry, material );
-// scene.add( cube );0
+// scene.add( cube );
+
+ function createCube(size,positionX , rotY = 0, color = 0xffffff){
+     const geometry = new THREE.BoxGeometry(size.w,size.h,size.d);
+    const material = new THREE.MeshBasicMaterial( { color } );
+    const cube = new THREE.Mesh( geometry, material );
+
+    cube.position.x = positionX;
+    cube.rotation.y = rotY;
+    scene.add( cube );
+    return cube;
+
+ }
 
 camera.position.z = 5;
 
@@ -57,10 +73,20 @@ class Doll{
     }
 
     lookforWard(){
-        this.doll.rotation.y = 0;
+        // this.doll.rotation.y = 0;
+        gsap.to(this.doll.rotation,{y: 0 , duration: 1})
+
     } 
+    
 
 }
+
+function createTrack(){
+    createCube({w:.2,h:1.5,d:1}, start_position, -.35)
+    createCube({w:.2,h:1.5,d:1}, end_position,.35);
+    createCube({w: start_position*2 + .21 ,h:1.5,d:1}, 0,0,0x000).position.z = -1 ;
+}
+createTrack()
 
 // doll on screen
 let doll = new Doll()
