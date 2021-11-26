@@ -24,13 +24,15 @@ scene.add( light );
 const start_position = 3 
 const end_position = -start_position 
 const text = document.querySelector(".text")
+const audio = document.querySelector(".audio")
 const TIME_LIMIT=10
 let gameStat = "loading"
 let isLookingBackward = true
 
+
 //musics
 
-const bgMusic = new Audio('./music_bg.mp3')
+const bgMusic = new Audio('../music/music_bg.mp3')
 bgMusic.loop = true
 const winMusic = new Audio('./music/win.mp3')
 const loseMusic = new Audio('./music/lose.mp3')
@@ -179,6 +181,7 @@ async function init(){
     text.innerText ="starting In 1"
     await delay(500)
     text.innerText ="GOO!!"
+    
     bgMusic.play()
     startGame()
 }
@@ -193,7 +196,7 @@ function startGame(){
     doll.start()
     setTimeout(() => {
         if(gameStat != "over"){
-            text.innerText="KHATAM TATA BYE BYE"
+            text.innerText="Try again reload page please!"
             loseMusic.play()
             gameStat="over"
         }
