@@ -1,6 +1,8 @@
 *{
     margin: 0;
     padding: 0;
+    background-color: #ED4388;
+
 }
 .text{
     position: fixed;
@@ -12,4 +14,8 @@
     text-shadow: 0 2px 5px rgba(0, 0,0, .3);
     transform: translateX(-50%);
 }
+.audio{
+    background-color: #ED4388;
+    display: flex;
 
+}
