@@ -19,3 +19,8 @@
     display: flex;
 
 }
+.card{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+}
